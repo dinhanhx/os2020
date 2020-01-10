@@ -9,6 +9,6 @@ Students are expected to:
 Student Info
 =========================
 
-* Student Name: Vũ Đinh Anh
+* Student Name: Vu Dinh Anh
 * Student ID: BI9-037
 
