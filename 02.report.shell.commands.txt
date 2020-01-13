@@ -1,4 +1,3 @@
-Tasks:
 	List all files in current directory containing <<list>> in their names (filter with grep)
 		Command: 
 			ls
