@@ -1,0 +1,73 @@
+List all your running processes (ps with more info from man)
+	Command:
+		man ps
+	Output:
+		<Literally show user manual for ps>
+	Command:
+		ps -ef
+	Output:
+		UID        PID  PPID  C STIME TTY          TIME CMD
+		root         1     0  0 17:36 ?        00:00:00 /init
+		root         7     1  0 17:36 tty1     00:00:00 /init
+		dinhanh      8     7  0 17:36 tty1     00:00:00 -bash
+		dinhanh     24     8  0 17:37 tty1     00:00:00 ps -ef
+
+Start a new proccess, gnome-calculator for example
+	Command:
+		bc
+		ps -ef
+	Output:
+		<This is the one from the terminal I use bc>
+		5+5
+		10
+		<This is the one from the terminal I use ps -ef>
+		UID        PID  PPID  C STIME TTY          TIME CMD
+		root         1     0  0 17:36 ?        00:00:00 /init
+		root         7     1  0 17:36 tty1     00:00:00 /init
+		dinhanh      8     7  0 17:36 tty1     00:00:00 -bash
+		dinhanh     49     8  0 17:41 tty1     00:00:00 bc
+		root        50     1  0 17:41 tty2     00:00:00 /init
+		dinhanh     51    50  0 17:41 tty2     00:00:00 -bash
+		dinhanh     63    51  0 17:41 tty2     00:00:00 ps -ef
+		
+Find process id if newly-created process (ps with grep)
+	Command
+		ps -ef | grep "bc"
+	Output:
+		dinhanh     49     8  0 17:41 tty1     00:00:00 bc
+		dinhanh     65    51  0 17:45 tty2     00:00:00 grep --color=auto bc
+		<49 is PID of bc>
+		
+Show its process status (see content of /proc/<id>/status)
+	Command:
+		cat /proc/49/status
+	Output:
+		Name:   bc
+		State:  S (sleeping)
+		Tgid:   49
+		Pid:    49
+		PPid:   8
+		TracerPid:      0
+		Uid:    1000    1000    1000    1000
+		Gid:    1000    1000    1000    1000
+		
+Pause it (kill with signal STOP)
+	Command:
+		kill STOP 49
+	Output:
+		<This is the one from the terminal I use bc>
+		Stopped
+
+Resume it (kill with signal CONT)
+	Command:
+		kill CONT 49
+	Output:
+		<This is the one from the terminal I use bc>
+		Continued
+
+Terminate it (kill with signal KILL)
+	Command:
+		kill KILL 49
+	Output:
+		<This is the one from the terminal I use bc>
+		Terminated		
