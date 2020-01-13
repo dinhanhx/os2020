@@ -1,0 +1,68 @@
+Command:
+	echo hello world
+Output:
+	hello world
+
+Command:
+	passwd
+Output:
+	Changing password for dinhanh.
+	(current) UNIX password: ****
+	Enter new UNIX password: ****
+	Retype new UNIX password: ****
+
+Command:
+	date
+Output:	
+	Mon Jan 13 14:13:14 +07 2020
+
+Command:
+	hostname
+Output:
+	VDA
+
+Command:
+	arch
+Output:
+	x86_24
+
+Command:
+	uname -a
+Ouput:
+	Linux VDA 4.4.0-18362-Microsoft #476-Microsoft Fri Nov 01 16:53:00 PST 2019 x86_64 x86_64 x86_64 GNU/Linux
+
+Command:
+	dmesg
+Output:
+	[    0.021710]  Microsoft 4.4.0-18362.476-Microsoft 4.4.35
+
+Command:
+	uptime
+Output:
+	14:14:08 up 2 min,  0 users,  load average: 0.52, 0.58, 0.59
+
+Command:
+	whoaimi
+Output:
+	dinhanh
+
+Command:
+	id
+Output:
+	uid=1000(dinhanh) gid=1000(dinhanh) groups=1000(dinhanh),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),108(lxd),114(netdev)
+
+Command:
+	last
+Output:
+	wtmp begins Thu Jan  9 07:43:30 2020
+
+Command:
+	finger
+Ouput:
+	No one logged on.
+
+Command:
+	w
+Output:
+	 14:32:22 up 21 min,  0 users,  load average: 0.52, 0.58, 0.59
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT	
