@@ -1,0 +1,12 @@
+ps NLWP option
+    Command:
+        FIREFOX=$(ps -A | grep firefox | awk '{print $1}')
+        ps -o nlwp $FIREFOX
+    Output:
+        48
+Count number of subdir in /proc/$FIREFOX/task
+    Command:
+        cd /proc/$FIREFOX/task
+        ls | wc -l
+    Output:
+        47
