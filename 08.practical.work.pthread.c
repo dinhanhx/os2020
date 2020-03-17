@@ -39,8 +39,8 @@ int main(void)
   printf("(prim_num)\n[fibo_num]\n");
   pthread_t tid_1, tid_2;
   pthread_create(&tid_1, NULL, printPrim, NULL);
-  pthread_join(tid_1, NULL);
+  //pthread_join(tid_1, NULL);
   pthread_create(&tid_2, NULL, printFibo, NULL);
-  pthread_join(tid_2, NULL);
+  //pthread_join(tid_2, NULL);
   return 0;
 }
