@@ -6,7 +6,7 @@
 
 void *printPrim(void *v_value)
 {
-  int i,fact,j;
+  long long int i,fact,j;
   for(i=1; i<=1000000; i++)
   {
     fact=0;
@@ -20,7 +20,7 @@ void *printPrim(void *v_value)
 
 void *printFibo(void *v_value)
 {
-  int t1 = 0, t2 = 1, nextTerm = 0;
+  long long int t1 = 0, t2 = 1, nextTerm = 0;
   printf("[%d] ", t1);
   printf("[%d] ", t2);
   nextTerm = t1 + t2;
