@@ -6,10 +6,11 @@
 
 void *printPrim(void *v_value)
 {
+  int i,fact,j;
   for(i=1; i<=1000000; i++)
   {
     fact=0;
-    for(j=1; j<=n; j++)
+    for(j=1; j<=1000000; j++)
     {
       if(i%j==0) fact++;
     }
