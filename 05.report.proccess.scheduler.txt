@@ -1,0 +1,56 @@
+Number of context switches for process systemd using two files
+    /proc/sched_debug
+        Command:
+            grep "systemd" /proc/sched_debug | awk '{print $1, $2, $5}' > out_1.txt
+            \\ LIST=$(grep systemd /proc/sched_debug | awk '{print $5}')
+        Output: (from out_1.txt)
+            S systemd 2080
+            Ssystemd-journal 321 119
+            S systemd-udevd 930
+            Ssystemd-resolve 365 120
+            Ssystemd-timesyn 367 120
+            S systemd-logind 5318
+            S systemd 204
+            S systemd 67
+        Command:
+            grep systemd /proc/sched_debug | awk '{print $5}' | paste -sd+ | bc
+        Output: 
+            13027
+    /proc/<processID>/sched
+        Command:
+            LIST=$(ps -A | grep systemd | awk {'print $1'})
+            for i in $LIST; do grep switches /proc/$i/sched; done > out_2.txt
+        Output: (from out_2.txt)
+            nr_switches                                  :                 2220
+            nr_voluntary_switches                        :                 1369
+            nr_involuntary_switches                      :                  851
+            nr_switches                                  :                  977
+            nr_voluntary_switches                        :                  903
+            nr_involuntary_switches                      :                   74
+            nr_switches                                  :                  963
+            nr_voluntary_switches                        :                  451
+            nr_involuntary_switches                      :                  512
+            nr_switches                                  :                 1920
+            nr_voluntary_switches                        :                 1884
+            nr_involuntary_switches                      :                   36
+            nr_switches                                  :                  130
+            nr_voluntary_switches                        :                   99
+            nr_involuntary_switches                      :                   31
+            nr_switches                                  :                 8745
+            nr_voluntary_switches                        :                 8682
+            nr_involuntary_switches                      :                   63
+            nr_switches                                  :                  206
+            nr_voluntary_switches                        :                  150
+            nr_involuntary_switches                      :                   56
+            nr_switches                                  :                  182
+            nr_voluntary_switches                        :                   83
+            nr_involuntary_switches                      :                   99
+        Command:
+            cat out_2.txt | awk  '{print $3}' | paste -sd+ | bc
+        Output:
+            32468
+        Command:
+            bc 32468 / 2
+        Output:
+            16234
+            
