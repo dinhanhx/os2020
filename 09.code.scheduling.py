@@ -76,3 +76,7 @@ def RR(proc_list, slice_time):
 #     str = ''
 #
 #     return str
+
+print(SJF(proc_list))
+str = Fore.RED + '-' * 4 + Fore.GREEN + '-' * 6 + Fore.BLUE + '-' * 10 + Fore.GREEN + '-' * 34 + Fore.WHITE + '-' * 50 + Fore.RED + '-' * 76
+print(str)
